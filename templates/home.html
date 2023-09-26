@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Heaven</title>
+    <!-- Include Bootstrap CSS (you can use a CDN or include it locally) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Style for pizza images */
+        .pizza-image {
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Pizza Heaven</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/restaurants">View Restaurants</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pizzas">View Pizzas</a>
+                </li>
+                <!-- Example: If you have a restaurant ID, you can pass it dynamically -->
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:history.back()">Go Back</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center text-primary">Welcome to Pizza Heaven</h1>
+        <p class="text-center">Discover our delicious pizzas below:</p>
+
+        <!-- Example list of pizzas with images -->
+        {% set pizzas = [
+            {'name': 'Margherita', 'ingredients': 'Tomato, Mozzarella, Basil', 'image': 'margherita.jpg'},
+            {'name': 'Pepperoni', 'ingredients': 'Tomato, Mozzarella, Pepperoni', 'image': 'pepperoni.jpg'},
+            {'name': 'Vegetarian', 'ingredients': 'Tomato, Mozzarella, Mixed Vegetables', 'image': 'vegetarian.jpg'},
+            {'name': 'Hawaiian', 'ingredients': 'Tomato, Mozzarella, Ham, Pineapple', 'image': 'hawaiian.jpg'},
+            {'name': 'BBQ Chicken', 'ingredients': 'BBQ Sauce, Mozzarella, Chicken, Red Onion', 'image': 'bbq-chicken.jpg'},
+            {'name': 'Supreme', 'ingredients': 'Tomato, Mozzarella, Pepperoni, Sausage, Bell Peppers, Olives', 'image': 'supreme.jpg'},
+            {'name': 'Mushroom Lovers', 'ingredients': 'Tomato, Mozzarella, Mushrooms, Garlic', 'image': 'mushroom-lovers.jpg'},
+        ] %}
+        
+        <!-- Display pizzas using Bootstrap cards -->
+        <div class="row">
+            {% for pizza in pizzas %}
+                <div class="col-md-4 mb-4">
+                    <div class="card pizza-card">
+                        <img src="{{ pizza.image }}" class="card-img-top pizza-image" alt="{{ pizza.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pizza.name }}</h5>
+                            <p class="card-text">Ingredients: {{ pizza.ingredients }}</p>
+                            <!-- Add colorful description here -->
+                            <p class="card-text text-info">Description:</p>
+                            <p class="card-text">
+                                Our {{ pizza.name }} pizza is a delightful combination of fresh ingredients. 
+                                It's topped with {{ pizza.ingredients }} and baked to perfection. 
+                                Every bite is a burst of flavor that will satisfy your taste buds.
+                            </p>
+                            <button class="btn btn-primary btn-block" onclick="orderPizza('{{ pizza.name }}')">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript for interactivity -->
+    <script>
+        // Function to simulate ordering a pizza (you can replace this with your own logic)
+        function orderPizza(pizzaName) {
+            alert('You ordered a ' + pizzaName + ' pizza! Enjoy!');
+        }
+    </script>
+</body>
+</html>

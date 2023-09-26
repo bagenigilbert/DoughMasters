@@ -1,11 +1,14 @@
 # Import necessary modules
-from flask import jsonify, request, abort
+from flask import jsonify, request, abort,render_template
 
 # Import the Flask application and database instance
 from app import app, db
 
 # Import the models for Restaurant, Pizza, and RestaurantPizza
 from models import Restaurant, Pizza, RestaurantPizza
+@app.route('/', methods=['GET'])
+def home():
+     return render_template('home.html')
 
 # Define a route to retrieve all restaurants
 @app.route('/restaurants', methods=['GET'])
