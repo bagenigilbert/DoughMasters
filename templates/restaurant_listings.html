@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Restaurant Listings{% endblock %}
+{% block page_title %}Restaurant Listings{% endblock %}
+
+{% block content %}
+    <!-- Restaurant List -->
+    <h2>Restaurants</h2>
+    <ul class="list-group">
+        <!-- Add your restaurant list items here -->
+        <li class="list-group-item">
+            <a href="/restaurants/1">Dominion Pizza</a>
+            <span class="float-right">Ngong Road, 5th Avenue</span>
+        </li>
+        <li class="list-group-item">
+            <a href="/restaurants/2">Pizza Hut</a>
+            <span class="float-right">Westgate Mall, Nrb 100</span>
+        </li>
+    </ul>
+{% endblock %}
