@@ -22,7 +22,7 @@ marshmallow-sqlalchemy==0.29.0
 packaging==23.1
 psycopg2-binary==2.9.7
 pytz==2023.3.post1
-referencing==0.30.2
+referencing==0.8.9
 rpds-py==0.10.3
 six==1.16.0
 SQLAlchemy==2.0.21
