@@ -16,9 +16,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable modification tracking for performance
 
-# Create a SQLAlchemy database instance linked to the Flask app
 db = SQLAlchemy(app)
-# postgres://gilley:zQydWieKb7wzG5wqpm0VgGF41RULzJuR@dpg-ck9s8jfs0fgc73f8a680-a.oregon-postgres.render.com/doughmasters
+# postgres://doughmasters_dough_user:Q7MyavxlEaMqbEfV95zG89Ny6uT1mjZL@dpg-cka07cev3ddc739ho85g-a.oregon-postgres.render.com/doughmasters_dough
 # Create a Migrate instance to handle database migrations
 migrate = Migrate(app, db)
 
@@ -27,4 +26,4 @@ from routes import *
 
 # Run the Flask application in debug mode on port 5003
 if __name__ == '__main__':
-    app.run(debug=True, port=5004)
+    app.run(debug=True, port=5007)
